@@ -1,8 +1,5 @@
 package com.example.library.weblibrary.enums;
 
-import org.springframework.stereotype.Component;
-
-@Component
 public enum Category {
 
     FICTION,
@@ -18,6 +15,5 @@ public enum Category {
     POLITICAL,
     CRIME,
     COMIC_BOOK;
-
 
 }

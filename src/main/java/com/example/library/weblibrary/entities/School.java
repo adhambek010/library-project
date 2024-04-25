@@ -13,14 +13,13 @@ import lombok.NoArgsConstructor;
 @Builder
 public class School {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private int id;
     private String region;
     private String district;
     private int schoolNumber;
     @OneToOne
-    private Admin admin;
-    @OneToOne
-    private Student student;
+    private User user;
+
     private int numberOfStudents;
 }

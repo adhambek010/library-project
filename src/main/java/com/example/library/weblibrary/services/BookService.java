@@ -1,8 +1,6 @@
 package com.example.library.weblibrary.services;
 
 import com.example.library.weblibrary.entities.Book;
-import com.example.library.weblibrary.entities.Student;
-import com.example.library.weblibrary.enums.Category;
 import com.example.library.weblibrary.exception.BookNotFoundException;
 import com.example.library.weblibrary.repositories.BookRepository;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +15,6 @@ import java.util.Optional;
 public class BookService {
 
     private final BookRepository bookRepository;
-    private final Category category;
 
     /**
      * Retrieves all books from the repository.

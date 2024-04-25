@@ -1,6 +1,6 @@
 package com.example.library.weblibrary.services;
 
-import com.example.library.weblibrary.entities.Student;
+import com.example.library.weblibrary.entities.User;
 import com.example.library.weblibrary.exception.StudentNotFoundException;
 import com.example.library.weblibrary.repositories.StudentRepository;
 import lombok.RequiredArgsConstructor;
@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class StudentService {
+public class UserService {
 
     private final StudentRepository studentRepository;
 
@@ -20,7 +20,7 @@ public class StudentService {
      *
      * @return A list of all students.
      */
-    public List<Student> getAllStudents() {
+    public List<User> getAllStudents() {
         return studentRepository.findAll();
     }
 
@@ -31,8 +31,8 @@ public class StudentService {
      * @return The student with the specified ID.
      * @throws StudentNotFoundException If no student with the specified ID is found.
      */
-    public Student getStudent(int id) {
-        Optional<Student> student = studentRepository.findById(id);
+    public User getStudent(int id) {
+        Optional<User> student = studentRepository.findById(id);
         if (student.isPresent()) {
             return student.get();
         } else {
@@ -46,7 +46,7 @@ public class StudentService {
      * @param student The student to add.
      * @return The added student.
      */
-    public Student addStudent(Student student) {
+    public User addStudent(User student) {
         return studentRepository.save(student);
     }
 
@@ -57,12 +57,13 @@ public class StudentService {
      * @throws StudentNotFoundException If no student with the specified ID is found.
      */
     public void deleteStudent(int id) {
-        Optional<Student> student = studentRepository.findById(id);
+        Optional<User> student = studentRepository.findById(id);
         if (student.isPresent()) {
             studentRepository.delete(student.get());
         } else {
             throw new StudentNotFoundException("Student not found with id " + id);
         }
     }
+
 
 }

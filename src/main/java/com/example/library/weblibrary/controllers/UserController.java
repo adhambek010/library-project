@@ -1,7 +1,7 @@
 package com.example.library.weblibrary.controllers;
 
-import com.example.library.weblibrary.entities.Student;
-import com.example.library.weblibrary.services.StudentService;
+import com.example.library.weblibrary.entities.User;
+import com.example.library.weblibrary.services.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,9 +11,9 @@ import static com.example.library.weblibrary.endpoints.Endpoints.*;
 
 @RestController
 @AllArgsConstructor
-public class StudentController {
+public class UserController {
 
-    private final StudentService studentService;
+    private final UserService studentService;
 
     /**
      * Retrieves all students.
@@ -21,7 +21,7 @@ public class StudentController {
      * @return A list of all students.
      */
     @GetMapping(GET_ALL_STUDENTS)
-    public List<Student> getAllStudents() {
+    public List<User> getAllStudents() {
         return studentService.getAllStudents();
     }
 
@@ -32,7 +32,7 @@ public class StudentController {
      * @return The student with the specified ID.
      */
     @GetMapping(GET_STUDENT)
-    public Student getStudent(@PathVariable int id) {
+    public User getStudent(@PathVariable int id) {
         return studentService.getStudent(id);
     }
 
@@ -43,7 +43,7 @@ public class StudentController {
      * @return The added student.
      */
     @PutMapping(ADD_STUDENT)
-    public Student addStudent(@RequestBody Student student) {
+    public User addStudent(@RequestBody User student) {
         return studentService.addStudent(student);
     }
 

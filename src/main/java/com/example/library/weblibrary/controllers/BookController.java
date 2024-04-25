@@ -130,7 +130,7 @@ public class BookController {
      *
      * @param book The book to add.
      */
-    @PutMapping(ADD_BOOK)
+    @PostMapping(ADD_BOOK)
     public void addBook(@RequestBody Book book) {
         bookService.addBook(book);
     }
