@@ -18,17 +18,14 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class User implements UserDetails {
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+@Table(name = "all_user")
+public class User extends BaseEntity implements UserDetails {
     private int id;
     private String firstName;
     private String lastName;
     private String email;
     private String phone;
     private String password;
-    @ManyToOne
-    private School school;
     @Enumerated(EnumType.STRING)
     private Role role;
 

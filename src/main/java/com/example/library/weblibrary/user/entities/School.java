@@ -11,15 +11,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class School {
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private int id;
+@Table(name = "school")
+public class School extends BaseEntity{
     private String region;
     private String district;
     private int schoolNumber;
-    @ManyToOne
-    private User user;
 
     private int numberOfStudents;
 }

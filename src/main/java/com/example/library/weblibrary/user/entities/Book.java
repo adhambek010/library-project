@@ -12,10 +12,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Book {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private int id;
+@Table(name = "book")
+public class Book extends BaseEntity{
     private String title;
     private String author;
     private String isbn;
@@ -23,5 +21,4 @@ public class Book {
     private boolean available;
     @Enumerated(EnumType.STRING)
     private Category category;
-    // TODO kitobni maktab bilan bog'lash kerakmi
 }
