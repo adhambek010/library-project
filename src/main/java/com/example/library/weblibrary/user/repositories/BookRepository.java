@@ -1,7 +1,7 @@
-package com.example.library.weblibrary.repositories;
+package com.example.library.weblibrary.user.repositories;
 
-import com.example.library.weblibrary.entities.Book;
-import com.example.library.weblibrary.enums.Category;
+import com.example.library.weblibrary.user.entities.Book;
+import com.example.library.weblibrary.user.enums.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

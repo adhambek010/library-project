@@ -1,4 +1,4 @@
-package com.example.library.weblibrary.entities;
+package com.example.library.weblibrary.user.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -18,7 +18,7 @@ public class School {
     private String region;
     private String district;
     private int schoolNumber;
-    @OneToOne
+    @ManyToOne
     private User user;
 
     private int numberOfStudents;

@@ -1,6 +1,6 @@
-package com.example.library.weblibrary.entities;
+package com.example.library.weblibrary.user.entities;
 
-import com.example.library.weblibrary.enums.Category;
+import com.example.library.weblibrary.user.enums.Category;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,4 +23,5 @@ public class Book {
     private boolean available;
     @Enumerated(EnumType.STRING)
     private Category category;
+    // TODO kitobni maktab bilan bog'lash kerakmi
 }

@@ -1,4 +1,4 @@
-package com.example.library.weblibrary.privacy;
+package com.example.library.weblibrary.user.privacy;
 
 import lombok.Builder;
 import lombok.Data;

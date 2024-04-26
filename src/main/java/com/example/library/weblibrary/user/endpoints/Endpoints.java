@@ -1,4 +1,4 @@
-package com.example.library.weblibrary.endpoints;
+package com.example.library.weblibrary.user.endpoints;
 
 import lombok.Data;
 
@@ -7,10 +7,10 @@ public class Endpoints {
     /**
      * Admin endpoints
      */
-    public static final String LOGIN_ADMIN = "/admin/login";
-    public static final String LOGOUT_ADMIN = "/admin/logout";
-    public static final String REGISTER_ADMIN = "/admin/register";
-    public static final String UPDATE_ADMIN = "/admin/update";
+    public static final String LOGIN_USER = "/user/login";
+    public static final String LOGOUT_USER = "/user/logout";
+    public static final String REGISTER_USER = "/user/register";
+
 
     /**
      * Student endpoints
@@ -40,6 +40,5 @@ public class Endpoints {
     public static final String ADD_BOOK = "/book/add";
     public static final String UPDATE_BOOK = "/book/update/{id}";
     public static final String DELETE_BOOK = "/book/delete/{id}";
-
 
 }

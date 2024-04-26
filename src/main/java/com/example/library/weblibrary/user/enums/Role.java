@@ -1,4 +1,4 @@
-package com.example.library.weblibrary.enums;
+package com.example.library.weblibrary.user.enums;
 
 public enum Role {
     USER, ADMIN;

@@ -1,9 +1,9 @@
-package com.example.library.weblibrary.controllers;
+package com.example.library.weblibrary.user.controllers;
 
-import static com.example.library.weblibrary.endpoints.Endpoints.*;
+import static com.example.library.weblibrary.user.endpoints.Endpoints.*;
 
-import com.example.library.weblibrary.entities.Book;
-import com.example.library.weblibrary.services.BookService;
+import com.example.library.weblibrary.user.entities.Book;
+import com.example.library.weblibrary.user.services.BookService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

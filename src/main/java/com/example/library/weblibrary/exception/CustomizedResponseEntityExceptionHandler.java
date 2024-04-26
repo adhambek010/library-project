@@ -39,7 +39,7 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
      * @return ResponseEntity containing error details and status code 404.
      * @throws Exception if an error occurs while handling the exception.
      */
-    @ExceptionHandler(StudentNotFoundException.class)
+    @ExceptionHandler(UserNotFoundException.class)
     public ResponseEntity<ErrorDetails> handleUserNotFoundException(Exception ex, WebRequest request) throws Exception {
         var errorDetails = new ErrorDetails(LocalDateTime.now(), ex.getMessage(), request.getDescription(false));
         return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
