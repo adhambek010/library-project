@@ -1,9 +1,8 @@
 package com.example.library.weblibrary.user.auth;
 
-import com.example.library.weblibrary.config.JwtService;
-import com.example.library.weblibrary.exception.UserNotFoundException;
-import com.example.library.weblibrary.token.Token;
-import com.example.library.weblibrary.token.TokenRepository;
+import com.example.library.weblibrary.security.jwt.JwtService;
+import com.example.library.weblibrary.security.jwt.token.Token;
+import com.example.library.weblibrary.security.jwt.token.TokenRepository;
 import com.example.library.weblibrary.user.entities.User;
 import com.example.library.weblibrary.user.repositories.UserRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
