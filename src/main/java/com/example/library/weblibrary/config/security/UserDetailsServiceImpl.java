@@ -1,4 +1,4 @@
-package com.example.library.weblibrary.config.jwt;
+package com.example.library.weblibrary.config.security;
 
 import com.example.library.weblibrary.user.entities.User;
 import com.example.library.weblibrary.user.entities.UserDetailsImpl;

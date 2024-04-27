@@ -31,7 +31,7 @@ public class UserService {
      * @return The student with the specified ID.
      * @throws UserNotFoundException If no student with the specified ID is found.
      */
-    public User getStudent(int id) {
+    public User getStudent(String  id) {
         Optional<User> student = studentRepository.findById(id);
         if (student.isPresent()) {
             return student.get();
@@ -56,7 +56,7 @@ public class UserService {
      * @param id The ID of the student to delete.
      * @throws UserNotFoundException If no student with the specified ID is found.
      */
-    public void deleteStudent(int id) {
+    public void deleteStudent(String id) {
         Optional<User> student = studentRepository.findById(id);
         if (student.isPresent()) {
             studentRepository.delete(student.get());

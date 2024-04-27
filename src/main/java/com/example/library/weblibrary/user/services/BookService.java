@@ -32,7 +32,7 @@ public class BookService {
      * @return The book with the specified ID.
      * @throws BookNotFoundException If no book with the specified ID is found.
      */
-    public Book getBookById(int id) {
+    public Book getBookById(String id) {
         Optional<Book> book = bookRepository.findById(id);
         if (book.isPresent()) {
             return book.get();
@@ -48,7 +48,7 @@ public class BookService {
      * @return The quantity of the book with the specified ID.
      * @throws BookNotFoundException If no book with the specified ID is found.
      */
-    public int getBooksCount(int id) {
+    public int getBooksCount(String id) {
         Optional<Book> book = bookRepository.findById(id);
         if (book.isPresent()) {
             return book.get().getQuantity();
@@ -146,7 +146,7 @@ public class BookService {
      *
      * @param id The ID of the book to delete.
      */
-    public void deleteBook(int id) {
+    public void deleteBook(String  id) {
         Optional<Book> book = bookRepository.findById(id);
         if (book.isPresent()) {
             bookRepository.delete(book.get());

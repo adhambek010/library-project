@@ -31,7 +31,7 @@ public class BookController {
      * @return The book with the specified ID.
      */
     @GetMapping(GET_BOOK)
-    public Book getBook(@PathVariable int id) {
+    public Book getBook(@PathVariable String id) {
         return bookService.getBookById(id);
     }
 
@@ -42,7 +42,7 @@ public class BookController {
      * @return The quantity of the book with the specified ID.
      */
     @GetMapping(GET_BOOKS_COUNT)
-    public int getBooksCount(@PathVariable int id) {
+    public int getBooksCount(@PathVariable String id) {
         return bookService.getBooksCount(id);
     }
 
@@ -77,7 +77,7 @@ public class BookController {
      * @return The book with the specified ID.
      */
     @GetMapping(GET_BOOKS_BY_ID)
-    public Book getBookById(@PathVariable int id) {
+    public Book getBookById(@PathVariable String id) {
         return bookService.getBookById(id);
     }
 
@@ -143,7 +143,7 @@ public class BookController {
      * @param id The ID of the book to delete.
      */
     @DeleteMapping(DELETE_BOOK)
-    public void deleteBook(@PathVariable int id) {
+    public void deleteBook(@PathVariable String  id) {
         bookService.deleteBook(id);
     }
 

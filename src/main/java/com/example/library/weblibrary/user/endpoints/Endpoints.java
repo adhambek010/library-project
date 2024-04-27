@@ -2,8 +2,24 @@ package com.example.library.weblibrary.user.endpoints;
 
 import lombok.Data;
 
+import java.util.Arrays;
+
 @Data
 public class Endpoints {
+
+    public static final String[] whiteListEndpoints = {
+            "/api/v1/auth/register",
+            "/api/v1/auth/login",
+            "/user/logout"
+    };
+
+    public static Boolean hasInWhiteList(String path) {
+        return Arrays.stream(whiteListEndpoints).anyMatch(path::contains);
+    }
+
+    public static final String[] adminEndpoints = {
+            "/book/all"
+    };
     /**
      * Admin endpoints
      */
