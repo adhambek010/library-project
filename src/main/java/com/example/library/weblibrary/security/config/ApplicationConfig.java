@@ -1,11 +1,10 @@
-package com.example.library.weblibrary.config;
+package com.example.library.weblibrary.security.config;
 
-import com.example.library.weblibrary.auditing.ApplicationAuditAware;
+import com.example.library.weblibrary.security.auditing.ApplicationAuditAware;
 import com.example.library.weblibrary.user.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.domain.AuditorAware;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -52,7 +51,7 @@ public class ApplicationConfig {
      * @return An instance of AuditorAware
      */
     @Bean
-    public AuditorAware<Integer> auditorAware() {
+    public ApplicationAuditAware auditorAware() {
         return new ApplicationAuditAware();
     }
 

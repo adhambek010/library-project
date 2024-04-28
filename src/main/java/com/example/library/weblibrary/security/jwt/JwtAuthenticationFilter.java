@@ -1,6 +1,6 @@
-package com.example.library.weblibrary.config;
+package com.example.library.weblibrary.security.jwt;
 
-import com.example.library.weblibrary.token.TokenRepository;
+import com.example.library.weblibrary.security.jwt.token.TokenRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

@@ -28,7 +28,7 @@ public class Endpoints {
     public static final String GET_BOOK = "/book/{id}";
     public static final String GET_BOOKS_COUNT = "/book/count/{id}";
     public static final String GET_AVAILABLE_BOOKS = "/book/available";
-    public static final String GET_BORROWED_BOOKS = "/book/borrowed";
+    public static final String GET_LOANED_BOOKS = "/book/loaned";
     public static final String GET_RESERVED_BOOKS = "/book/reserved";
     public static final String GET_RETURNED_BOOKS = "/book/returned";
     public static final String GET_MY_BOOKS = "/book/{studentId}/{bookId}";

@@ -1,4 +1,4 @@
-package com.example.library.weblibrary.user.auth;
+package com.example.library.weblibrary.security.auth;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,6 +13,6 @@ public class AuthenticationRequest {
     private String email;
     private String password;
     /**
-     * Role ni ham qo'shish kerakmi?
+     * TODO Role ni ham qo'shish kerakmi?
      */
 }

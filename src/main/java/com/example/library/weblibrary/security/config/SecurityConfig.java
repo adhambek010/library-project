@@ -1,5 +1,6 @@
-package com.example.library.weblibrary.config;
+package com.example.library.weblibrary.security.config;
 
+import com.example.library.weblibrary.security.jwt.JwtAuthenticationFilter;
 import com.example.library.weblibrary.user.endpoints.Endpoints;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;

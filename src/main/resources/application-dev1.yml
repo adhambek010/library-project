@@ -1,17 +1,17 @@
-spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/library
-    username: accounting
-    password: accounting
-    driver-class-name: org.postgresql.Driver
-  jpa:
-    generate-ddl: true
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-    database: postgresql
-    properties:
-      hibernate.format_sql: true
-  sql:
-    init:
-      encoding: UTF-8
+#spring:
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/library
+#    username: postgres
+#    password: accounting
+#    driver-class-name: org.postgresql.Driver
+#  jpa:
+#    generate-ddl: true
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
+#    database: postgresql
+#    properties:
+#      hibernate.format_sql: true
+#  sql:
+#    init:
+#      encoding: UTF-8

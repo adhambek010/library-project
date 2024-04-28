@@ -1,4 +1,4 @@
-package com.example.library.weblibrary.exception;
+package com.example.library.weblibrary.user.exception;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

@@ -1,4 +1,4 @@
-package com.example.library.weblibrary.user.enums;
+package com.example.library.weblibrary.book.enums;
 
 public enum Category {
 

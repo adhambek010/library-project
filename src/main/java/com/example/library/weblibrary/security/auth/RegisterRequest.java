@@ -1,4 +1,4 @@
-package com.example.library.weblibrary.user.auth;
+package com.example.library.weblibrary.security.auth;
 
 import com.example.library.weblibrary.user.enums.Role;
 import lombok.AllArgsConstructor;

@@ -1,6 +1,6 @@
-package com.example.library.weblibrary.config;
+package com.example.library.weblibrary.security.config;
 
-import com.example.library.weblibrary.token.TokenRepository;
+import com.example.library.weblibrary.security.jwt.token.TokenRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
@@ -37,12 +37,9 @@ public class LogoutService implements LogoutHandler {
         var storedToken = tokenRepository.findByToken(jwtToken).orElse(null);
 
         if(storedToken != null) {
-            // Mark the token as expired and revoked
             storedToken.setExpired(true);
             storedToken.setRevoked(true);
             tokenRepository.save(storedToken);
-
-            // Clear the security context
             SecurityContextHolder.clearContext();
         }
     }

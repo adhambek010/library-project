@@ -1,4 +1,4 @@
-package com.example.library.weblibrary.exception;
+package com.example.library.weblibrary.user.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

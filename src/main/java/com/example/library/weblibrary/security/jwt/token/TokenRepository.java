@@ -1,4 +1,4 @@
-package com.example.library.weblibrary.token;
+package com.example.library.weblibrary.security.jwt.token;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -6,15 +6,15 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 import java.util.Optional;
 
-public interface TokenRepository extends JpaRepository<Token, Integer> {
+public interface TokenRepository extends JpaRepository<Token, String> {
     @Query(
             value = """
                 SELECT t FROM Token AS t
                 INNER JOIN User AS u
-                ON t.id = u.id
-                WHERE u.id = t.id AND (t.expired = FALSE OR t.revoked = FALSE)
+                ON t.identifier = u.identifier
+                WHERE u.identifier = t.identifier AND (t.expired = FALSE OR t.revoked = FALSE)
             """
     )
-    List<Token> findAllValidTokenByUser(Integer id);
+    List<Token> findAllValidTokenByUser(String id);
     Optional<Token> findByToken(String token);
 }

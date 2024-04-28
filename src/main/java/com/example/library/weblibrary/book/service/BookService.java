@@ -1,8 +1,9 @@
-package com.example.library.weblibrary.user.services;
+package com.example.library.weblibrary.book.service;
 
-import com.example.library.weblibrary.user.entities.Book;
-import com.example.library.weblibrary.exception.BookNotFoundException;
-import com.example.library.weblibrary.user.repositories.BookRepository;
+import com.example.library.weblibrary.book.entities.Book;
+import com.example.library.weblibrary.book.enums.BookStatus;
+import com.example.library.weblibrary.book.exception.BookNotFoundException;
+import com.example.library.weblibrary.book.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -32,7 +33,7 @@ public class BookService {
      * @return The book with the specified ID.
      * @throws BookNotFoundException If no book with the specified ID is found.
      */
-    public Book getBookById(int id) {
+    public Book getBookById(String id) {
         Optional<Book> book = bookRepository.findById(id);
         if (book.isPresent()) {
             return book.get();
@@ -48,7 +49,7 @@ public class BookService {
      * @return The quantity of the book with the specified ID.
      * @throws BookNotFoundException If no book with the specified ID is found.
      */
-    public int getBooksCount(int id) {
+    public int getBooksCount(String id) {
         Optional<Book> book = bookRepository.findById(id);
         if (book.isPresent()) {
             return book.get().getQuantity();
@@ -66,7 +67,7 @@ public class BookService {
         var books = bookRepository.findAll();
         var availableBooks = new ArrayList<Book>();
         for (var book : books) {
-            if (book.isAvailable()) {
+            if (book.getStatus().equals(BookStatus.AVAILABLE)) {
                 availableBooks.add(book);
             }
         }
@@ -82,7 +83,7 @@ public class BookService {
         var books = bookRepository.findAll();
         var borrowedBooks = new ArrayList<Book>();
         for (var book : books) {
-            if (!book.isAvailable()) {
+            if (!book.getStatus().equals(BookStatus.ON_LOAN)) {
                 borrowedBooks.add(book);
             }
         }
@@ -146,7 +147,7 @@ public class BookService {
      *
      * @param id The ID of the book to delete.
      */
-    public void deleteBook(int id) {
+    public void deleteBook(String id) {
         Optional<Book> book = bookRepository.findById(id);
         if (book.isPresent()) {
             bookRepository.delete(book.get());

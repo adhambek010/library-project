@@ -1,4 +1,4 @@
-package com.example.library.weblibrary.user.auth;
+package com.example.library.weblibrary.security.auth;
 
 import com.example.library.weblibrary.security.jwt.JwtService;
 import com.example.library.weblibrary.security.jwt.token.Token;
@@ -44,7 +44,6 @@ public class AuthenticationService {
         return AuthenticationResponse.builder()
                 .accessToken(jwtToken)
                 .refreshToken(refreshToken)
-                //TODO: add role for extract from token
                 .build();
 
     }
@@ -70,7 +69,7 @@ public class AuthenticationService {
      * @param user The user whose tokens need to be revoked
      */
     public void revokeAllUserTokens(User user) {
-        var validUserTokens = tokenRepository.findAllValidTokenByUser(user.getId());
+        var validUserTokens = tokenRepository.findAllValidTokenByUser(user.getIdentifier());
         if (validUserTokens.isEmpty()) {
             return;
         }

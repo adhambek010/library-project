@@ -2,10 +2,7 @@ package com.example.library.weblibrary.user.entities;
 
 import com.example.library.weblibrary.user.enums.Role;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,13 +11,13 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
-@Data
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@Setter
 @Builder
 @Table(name = "all_user")
 public class User extends BaseEntity implements UserDetails {
-    private int id;
     private String firstName;
     private String lastName;
     private String email;
@@ -28,10 +25,13 @@ public class User extends BaseEntity implements UserDetails {
     private String password;
     @Enumerated(EnumType.STRING)
     private Role role;
+    @OneToMany
+    @JoinColumn(name = "identifier")
+    private List<UserBooks> books;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(Role.USER.toString()));
+        return List.of(new SimpleGrantedAuthority(Role.STUDENT.toString()));
     }
 
     @Override

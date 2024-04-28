@@ -1,4 +1,4 @@
-package com.example.library.weblibrary.token;
+package com.example.library.weblibrary.security.jwt.token;
 
 public enum TokenType {
     BEARER
