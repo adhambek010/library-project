@@ -13,3 +13,7 @@ INSERT INTO roles (identifier, name)
 SELECT '2', 'ADMIN' WHERE NOT EXISTS (
     SELECT 1 FROM roles WHERE identifier = '2' AND name = 'ADMIN'
 );
+INSERT INTO roles (identifier, name)
+SELECT '3', 'SUPER_ADMIN' WHERE NOT EXISTS (
+    SELECT 1 FROM roles WHERE identifier = '3' AND name = 'SUPER_ADMIN'
+);
