@@ -1,6 +1,6 @@
 package com.example.library.weblibrary.config;
 
-import com.example.library.weblibrary.config.disable.token.TokenRepository;
+//import com.example.library.weblibrary.config.disable.token.TokenRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
@@ -13,16 +13,16 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class LogoutService implements LogoutHandler {
 
-    private final TokenRepository tokenRepository;
+//    private final TokenRepository tokenRepository;
 
     /**
-     * Logs out the user by invalidating the JWT token associated with the request.
+     * Logs out the userEntity by invalidating the JWT token associated with the request.
      * If a valid JWT token is present in the Authorization header, it marks the token as expired and revoked in the token repository.
      * The SecurityContextHolder is cleared to remove the authentication context.
      *
      * @param request The HTTP servlet request
      * @param response The HTTP servlet response
-     * @param authentication The authentication object representing the current user's authentication
+     * @param authentication The authentication object representing the current userEntity's authentication
      */
     @Override
     public void logout(HttpServletRequest request, HttpServletResponse response, Authentication authentication) {
@@ -32,19 +32,20 @@ public class LogoutService implements LogoutHandler {
         if(authHeader == null || !authHeader.startsWith("Bearer ")) {
             return;
         }
+        SecurityContextHolder.clearContext();
 
-        jwtToken = authHeader.substring(7);
-        var storedToken = tokenRepository.findByToken(jwtToken).orElse(null);
-
-        if(storedToken != null) {
-            // Mark the token as expired and revoked
-            storedToken.setExpired(true);
-            storedToken.setRevoked(true);
-            tokenRepository.save(storedToken);
-
-            // Clear the security context
-            SecurityContextHolder.clearContext();
-        }
+//        jwtToken = authHeader.substring(7);
+//        var storedToken = tokenRepository.findByToken(jwtToken).orElse(null);
+//
+//        if(storedToken != null) {
+//            // Mark the token as expired and revoked
+//            storedToken.setExpired(true);
+//            storedToken.setRevoked(true);
+//            tokenRepository.save(storedToken);
+//
+//            // Clear the security context
+//            SecurityContextHolder.clearContext();
+//        }
     }
 
 }

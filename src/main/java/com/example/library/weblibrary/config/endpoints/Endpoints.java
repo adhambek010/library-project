@@ -10,7 +10,7 @@ public class Endpoints {
     public static final String[] whiteListEndpoints = {
             "/api/v1/auth/register",
             "/api/v1/auth/login",
-            "/user/logout"
+            "/userEntity/logout"
     };
 
     public static Boolean hasInWhiteList(String path) {
@@ -18,14 +18,14 @@ public class Endpoints {
     }
 
     public static final String[] adminEndpoints = {
-            "/book/all"
+            "/api/v1/book/add"
     };
     /**
      * Admin endpoints
      */
-    public static final String LOGIN_USER = "/user/login";
-    public static final String LOGOUT_USER = "/user/logout";
-    public static final String REGISTER_USER = "/user/register";
+    public static final String LOGIN_USER = "/userEntity/login";
+    public static final String LOGOUT_USER = "/userEntity/logout";
+    public static final String REGISTER_USER = "/userEntity/register";
 
 
     /**

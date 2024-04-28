@@ -1,11 +1,11 @@
-//package com.example.library.weblibrary.user.auth;
+//package com.example.library.weblibrary.userEntity.auth;
 //
 //import com.example.library.weblibrary.config.disable.JwtService;
 //import com.example.library.weblibrary.exception.UserNotFoundException;
 //import com.example.library.weblibrary.token.Token;
 //import com.example.library.weblibrary.token.TokenRepository;
-//import com.example.library.weblibrary.user.entities.User;
-//import com.example.library.weblibrary.user.repositories.UserRepository;
+//import com.example.library.weblibrary.userEntity.entities.UserEntity;
+//import com.example.library.weblibrary.userEntity.repositories.UserRepository;
 //import com.fasterxml.jackson.databind.ObjectMapper;
 //import jakarta.servlet.http.HttpServletRequest;
 //import jakarta.servlet.http.HttpServletResponse;
@@ -25,12 +25,12 @@
 //    private final JwtService service;
 //
 //    /**
-//     * Registers a new user based on the provided RegisterRequest. Saves the user to the database, generates authentication tokens, and returns an AuthenticationResponse.
-//     * @param request RegisterRequest containing user details
-//     * @return AuthenticationResponse containing access token, refresh token, and user role
+//     * Registers a new userEntity based on the provided RegisterRequest. Saves the userEntity to the database, generates authentication tokens, and returns an AuthenticationResponse.
+//     * @param request RegisterRequest containing userEntity details
+//     * @return AuthenticationResponse containing access token, refresh token, and userEntity role
 //     */
 //    public AuthenticationResponse register(RegisterRequest request) {
-//        var user = User.builder()
+//        var userEntity = UserEntity.builder()
 //                .firstName(request.getFirstName())
 //                .lastName(request.getLastName())
 //                .password(passwordEncoder.encode(request.getPassword()))
@@ -38,9 +38,9 @@
 //                .roles(request.getRole())
 //                .build();
 //
-//        var savedUser = userRepository.save(user);
-//        var jwtToken = service.generateToken(user);
-//        var refreshToken = service.generateRefreshToken(user);
+//        var savedUser = userRepository.save(userEntity);
+//        var jwtToken = service.generateToken(userEntity);
+//        var refreshToken = service.generateRefreshToken(userEntity);
 //        savedUserToken(savedUser, jwtToken);
 //        return AuthenticationResponse.builder()
 //                .accessToken(jwtToken)
@@ -51,13 +51,13 @@
 //    }
 //
 //    /**
-//     * Saves user's JWT token to the database.
-//     * @param user The user whose token needs to be saved
+//     * Saves userEntity's JWT token to the database.
+//     * @param userEntity The userEntity whose token needs to be saved
 //     * @param jwtToken The JWT token to be saved
 //     */
-//    public void savedUserToken(User user, String jwtToken) {
+//    public void savedUserToken(UserEntity userEntity, String jwtToken) {
 //        var token = Token.builder()
-//                .user(user)
+//                .userEntity(userEntity)
 //                .token(jwtToken)
 //                .expired(false)
 //                .revoked(false)
@@ -67,11 +67,11 @@
 //    }
 //
 //    /**
-//     * Revokes all tokens associated with the given user.
-//     * @param user The user whose tokens need to be revoked
+//     * Revokes all tokens associated with the given userEntity.
+//     * @param userEntity The userEntity whose tokens need to be revoked
 //     */
-//    public void revokeAllUserTokens(User user) {
-//        var validUserTokens = tokenRepository.findAllValidTokenByUser(user.getId());
+//    public void revokeAllUserTokens(UserEntity userEntity) {
+//        var validUserTokens = tokenRepository.findAllValidTokenByUser(userEntity.getId());
 //        if (validUserTokens.isEmpty()) {
 //            return;
 //        }
@@ -100,11 +100,11 @@
 //        userEmail = service.extractUsername(refreshToken);
 //
 //        if (userEmail != null) {
-//            var user = userRepository.findByEmail(userEmail).orElseThrow();
-//            if(service.isValidToken(refreshToken, user)){
-//                var accessToken = service.generateToken(user);
-//                revokeAllUserTokens(user);
-//                savedUserToken(user, accessToken);
+//            var userEntity = userRepository.findByEmail(userEmail).orElseThrow();
+//            if(service.isValidToken(refreshToken, userEntity)){
+//                var accessToken = service.generateToken(userEntity);
+//                revokeAllUserTokens(userEntity);
+//                savedUserToken(userEntity, accessToken);
 //                var authResponse = AuthenticationResponse.builder()
 //                        .accessToken(accessToken)
 //                        .refreshToken(refreshToken)

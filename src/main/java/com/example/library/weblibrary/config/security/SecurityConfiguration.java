@@ -25,15 +25,20 @@ public class SecurityConfiguration {
     private final JwtTokenFilter jwtTokenFilter;
     private final LogoutHandler logoutHandler;
     private final MyAuthenticationEntryPoint myAuthenticationEntryPoint;
+    private final MyAccessDeniedHandler myAccessDeniedHandler;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(AbstractHttpConfigurer::disable)
-                .exceptionHandling(exception -> exception.authenticationEntryPoint(myAuthenticationEntryPoint))
+                .exceptionHandling(exception -> exception
+                        .authenticationEntryPoint(myAuthenticationEntryPoint)
+                        .accessDeniedHandler(myAccessDeniedHandler)
+                )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(Endpoints.whiteListEndpoints).permitAll()
+                        .requestMatchers(Endpoints.adminEndpoints).hasAnyAuthority("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .logout(logout -> logout

@@ -1,7 +1,7 @@
 //package com.example.library.weblibrary.config;
 //
 //import com.example.library.weblibrary.auditing.ApplicationAuditAware;
-//import com.example.library.weblibrary.user.repositories.UserRepository;
+//import com.example.library.weblibrary.userEntity.repositories.UserRepository;
 //import lombok.RequiredArgsConstructor;
 //import org.springframework.context.annotation.Bean;
 //import org.springframework.context.annotation.Configuration;
@@ -22,14 +22,14 @@
 //    private final UserRepository userRepository;
 //
 //    /**
-//     * Provides the UserDetailsService bean implementation which retrieves user details from the UserRepository.
+//     * Provides the UserDetailsService bean implementation which retrieves userEntity details from the UserRepository.
 //     *
 //     * @return An instance of UserDetailsService
 //     */
 //    @Bean
 //    public UserDetailsService userDetailsService() {
 //        return username -> (UserDetails) userRepository.findByEmail(username).orElseThrow(
-//                () -> new UsernameNotFoundException("User not found please check credentials")
+//                () -> new UsernameNotFoundException("UserEntity not found please check credentials")
 //        );
 //    }
 //

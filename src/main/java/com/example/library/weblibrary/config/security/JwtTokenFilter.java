@@ -47,10 +47,10 @@ public class JwtTokenFilter extends OncePerRequestFilter {
                 // Extract username from the token
                 String username = jwtTokenProvider.getUsername(token);
 
-                // Load user details by username
+                // Load userEntity details by username
                 UserDetails userDetails = userDetailsService.loadUserByUsername(username);
 
-                // Check if the user is authenticated
+                // Check if the userEntity is authenticated
                 if (userDetails != null && SecurityContextHolder.getContext().getAuthentication() == null) {
                     // Create authentication token
                     UsernamePasswordAuthenticationToken authentication =

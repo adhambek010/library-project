@@ -72,10 +72,10 @@
 //    }
 //
 //    /**
-//     * Generates a JWT token for the given user details and custom claims.
+//     * Generates a JWT token for the given userEntity details and custom claims.
 //     *
 //     * @param claims          Custom claims to be included in the token
-//     * @param userDetails     The user details to be included in the token
+//     * @param userDetails     The userEntity details to be included in the token
 //     * @param expirationInMs  Expiration time for the token in milliseconds
 //     * @return The generated JWT token
 //     */
@@ -90,9 +90,9 @@
 //    }
 //
 //    /**
-//     * Generates a JWT token for the given user details.
+//     * Generates a JWT token for the given userEntity details.
 //     *
-//     * @param userDetails The user details to be included in the token
+//     * @param userDetails The userEntity details to be included in the token
 //     * @return The generated JWT token
 //     */
 //    public String generateToken(UserDetails userDetails) {
@@ -100,10 +100,10 @@
 //    }
 //
 //    /**
-//     * Generates a JWT token for the given user details and custom claims.
+//     * Generates a JWT token for the given userEntity details and custom claims.
 //     *
 //     * @param claims      Custom claims to be included in the token
-//     * @param userDetails The user details to be included in the token
+//     * @param userDetails The userEntity details to be included in the token
 //     * @return The generated JWT token
 //     */
 //    public String generateToken(Map<String, Object> claims, UserDetails userDetails) {
@@ -111,9 +111,9 @@
 //    }
 //
 //    /**
-//     * Generates a refresh JWT token for the given user details.
+//     * Generates a refresh JWT token for the given userEntity details.
 //     *
-//     * @param userDetails The user details to be included in the token
+//     * @param userDetails The userEntity details to be included in the token
 //     * @return The generated refresh JWT token
 //     */
 //    public String generateRefreshToken(UserDetails userDetails) {
@@ -124,7 +124,7 @@
 //     * Validates whether a given JWT token is valid.
 //     *
 //     * @param token       The JWT token to validate
-//     * @param userDetails The user details to compare with the token
+//     * @param userDetails The userEntity details to compare with the token
 //     * @return True if the token is valid, otherwise false
 //     */
 //    public boolean isValidToken(String token, UserDetails userDetails) {

@@ -4,8 +4,8 @@ import com.example.library.weblibrary.config.security.JwtTokenProvider;
 import com.example.library.weblibrary.user.auth.dto.AuthenticationRequest;
 import com.example.library.weblibrary.user.auth.dto.AuthenticationResponse;
 import com.example.library.weblibrary.user.auth.dto.RegisterRequest;
-import com.example.library.weblibrary.user.database.entities.RoleEntity;
-import com.example.library.weblibrary.user.database.entities.User;
+import com.example.library.weblibrary.user.database.entities.AuthorityEntity;
+import com.example.library.weblibrary.user.database.entities.UserEntity;
 import com.example.library.weblibrary.user.database.repositories.RoleRepository;
 import com.example.library.weblibrary.user.database.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -26,14 +26,14 @@ public class AuthenticationService1 {
     private final RoleRepository repository;
 
     public AuthenticationResponse register(RegisterRequest request) {
-        Optional<RoleEntity> roleEntity = repository.findByName(request.getRole());
-        var user = User.builder()
+        Optional<AuthorityEntity> roleEntity = repository.findByName(request.getRole());
+        var user = UserEntity.builder()
                 .firstName(request.getFirstName())
                 .lastName(request.getLastName())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .email(request.getEmail())
                 .username(request.getEmail())
-                .roles(Collections.singleton(roleEntity.get()))
+                .authorities(Collections.singleton(roleEntity.get()))
                 .build();
         userRepository.save(user);
 
@@ -46,7 +46,7 @@ public class AuthenticationService1 {
     }
 
     public ResponseEntity<AuthenticationResponse> login(AuthenticationRequest request) {
-        Optional<User> userOptional = userRepository.findByEmail(request.getEmail());
+        Optional<UserEntity> userOptional = userRepository.findByEmail(request.getEmail());
         if (userOptional.isEmpty()) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }

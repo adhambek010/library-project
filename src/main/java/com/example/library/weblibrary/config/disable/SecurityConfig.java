@@ -1,6 +1,6 @@
 //package com.example.library.weblibrary.config;
 //
-//import com.example.library.weblibrary.user.endpoints.Endpoints;
+//import com.example.library.weblibrary.userEntity.endpoints.Endpoints;
 //import lombok.RequiredArgsConstructor;
 //import org.springframework.context.annotation.Bean;
 //import org.springframework.context.annotation.Configuration;

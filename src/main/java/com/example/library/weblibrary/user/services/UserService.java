@@ -1,6 +1,6 @@
 package com.example.library.weblibrary.user.services;
 
-import com.example.library.weblibrary.user.database.entities.User;
+import com.example.library.weblibrary.user.database.entities.UserEntity;
 import com.example.library.weblibrary.config.exception.UserNotFoundException;
 import com.example.library.weblibrary.user.database.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +20,7 @@ public class UserService {
      *
      * @return A list of all students.
      */
-    public List<User> getAllStudents() {
+    public List<UserEntity> getAllStudents() {
         return studentRepository.findAll();
     }
 
@@ -31,8 +31,8 @@ public class UserService {
      * @return The student with the specified ID.
      * @throws UserNotFoundException If no student with the specified ID is found.
      */
-    public User getStudent(String  id) {
-        Optional<User> student = studentRepository.findById(id);
+    public UserEntity getStudent(String  id) {
+        Optional<UserEntity> student = studentRepository.findById(id);
         if (student.isPresent()) {
             return student.get();
         } else {
@@ -46,7 +46,7 @@ public class UserService {
      * @param student The student to add.
      * @return The added student.
      */
-    public User addStudent(User student) {
+    public UserEntity addStudent(UserEntity student) {
         return studentRepository.save(student);
     }
 
@@ -57,7 +57,7 @@ public class UserService {
      * @throws UserNotFoundException If no student with the specified ID is found.
      */
     public void deleteStudent(String id) {
-        Optional<User> student = studentRepository.findById(id);
+        Optional<UserEntity> student = studentRepository.findById(id);
         if (student.isPresent()) {
             studentRepository.delete(student.get());
         } else {

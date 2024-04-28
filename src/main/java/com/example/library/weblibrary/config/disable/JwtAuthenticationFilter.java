@@ -26,8 +26,8 @@
 //
 //    /**
 //     * Intercepts incoming HTTP requests to check for JWT authentication.
-//     * If a valid JWT token is present in the Authorization header, it extracts the user email from the token and validates it.
-//     * If the token is valid and not expired or revoked, it sets up Spring Security's authentication context for the user.
+//     * If a valid JWT token is present in the Authorization header, it extracts the userEntity email from the token and validates it.
+//     * If the token is valid and not expired or revoked, it sets up Spring Security's authentication context for the userEntity.
 //     *
 //     * @param request The HTTP servlet request
 //     * @param response The HTTP servlet response

@@ -16,11 +16,11 @@ public class UserDetailsImpl implements UserDetails {
         this.authorities = authorities;
     }
 
-    public static UserDetailsImpl build(User user) {
+    public static UserDetailsImpl build(UserEntity userEntity) {
         return new UserDetailsImpl(
-                user.getUsername(),
-                user.getPassword(),
-                user.getAuthorities()
+                userEntity.getUsername(),
+                userEntity.getPassword(),
+                userEntity.getAuthorities()
         );
     }
 

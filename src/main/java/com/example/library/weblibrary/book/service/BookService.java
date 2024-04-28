@@ -1,15 +1,19 @@
-package com.example.library.weblibrary.user.services;
+package com.example.library.weblibrary.book.service;
 
-import com.example.library.weblibrary.user.database.entities.Book;
+import com.example.library.weblibrary.book.database.entity.BookEntity;
+import com.example.library.weblibrary.book.dto.BookDTO;
 import com.example.library.weblibrary.config.exception.BookNotFoundException;
-import com.example.library.weblibrary.user.database.repositories.BookRepository;
+import com.example.library.weblibrary.book.database.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class BookService {
@@ -21,7 +25,7 @@ public class BookService {
      *
      * @return A list of all books.
      */
-    public List<Book> getAllBooks() {
+    public List<BookEntity> getAllBooks() {
         return bookRepository.findAll();
     }
 
@@ -32,12 +36,12 @@ public class BookService {
      * @return The book with the specified ID.
      * @throws BookNotFoundException If no book with the specified ID is found.
      */
-    public Book getBookById(String id) {
-        Optional<Book> book = bookRepository.findById(id);
+    public BookEntity getBookById(String id) {
+        Optional<BookEntity> book = bookRepository.findById(id);
         if (book.isPresent()) {
             return book.get();
         } else {
-            throw new BookNotFoundException("Book with id " + id + " not found");
+            throw new BookNotFoundException("BookEntity with id " + id + " not found");
         }
     }
 
@@ -49,11 +53,11 @@ public class BookService {
      * @throws BookNotFoundException If no book with the specified ID is found.
      */
     public int getBooksCount(String id) {
-        Optional<Book> book = bookRepository.findById(id);
+        Optional<BookEntity> book = bookRepository.findById(id);
         if (book.isPresent()) {
             return book.get().getQuantity();
         } else {
-            throw new BookNotFoundException("Book with id " + id + " not found");
+            throw new BookNotFoundException("BookEntity with id " + id + " not found");
         }
     }
 
@@ -62,9 +66,9 @@ public class BookService {
      *
      * @return A list of available books.
      */
-    public List<Book> getAvailableBooks() {
+    public List<BookEntity> getAvailableBooks() {
         var books = bookRepository.findAll();
-        var availableBooks = new ArrayList<Book>();
+        var availableBooks = new ArrayList<BookEntity>();
         for (var book : books) {
             if (book.isAvailable()) {
                 availableBooks.add(book);
@@ -78,9 +82,9 @@ public class BookService {
      *
      * @return A list of borrowed books.
      */
-    public List<Book> getBorrowedBooks() {
+    public List<BookEntity> getBorrowedBooks() {
         var books = bookRepository.findAll();
-        var borrowedBooks = new ArrayList<Book>();
+        var borrowedBooks = new ArrayList<BookEntity>();
         for (var book : books) {
             if (!book.isAvailable()) {
                 borrowedBooks.add(book);
@@ -95,7 +99,7 @@ public class BookService {
      * @param title The title of the book(s) to retrieve.
      * @return A list of books with the specified title.
      */
-    public List<Book> getBooksByTitle(String title) {
+    public List<BookEntity> getBooksByTitle(String title) {
         return bookRepository.findByTitle(title);
     }
 
@@ -105,7 +109,7 @@ public class BookService {
      * @param author The author of the book(s) to retrieve.
      * @return A list of books by the specified author.
      */
-    public List<Book> getBookByAuthor(String author) {
+    public List<BookEntity> getBookByAuthor(String author) {
         return bookRepository.findBookByAuthor(author);
     }
 
@@ -115,7 +119,7 @@ public class BookService {
      * @param character The character to search for in book titles.
      * @return A list of books containing the specified character in their titles.
      */
-    public List<Book> getBookByCharacter(String character) {
+    public List<BookEntity> getBookByCharacter(String character) {
         //return bookRepository.findBookByCharacter(character);
         //TODO: Implement a method to search books by character in title or delete this method.
         return null;
@@ -127,7 +131,7 @@ public class BookService {
      * @param category The category of the book(s) to retrieve.
      * @return A list of books in the specified category.
      */
-    public List<Book> getBookByCategory(String category) {
+    public List<BookEntity> getBookByCategory(String category) {
         //TODO: Implement a method to search books by category or delete this method.
         return null;
     }
@@ -137,8 +141,11 @@ public class BookService {
      *
      * @param book The book to add.
      */
-    public void addBook(Book book) {
-        bookRepository.save(book);
+    public void addBook(BookDTO book) {
+        BookEntity bookEntity = new BookEntity();
+        BeanUtils.copyProperties(book, bookEntity);
+        bookRepository.save(bookEntity);
+        log.info("---- Created Book: " + book);
     }
 
     /**
@@ -146,12 +153,12 @@ public class BookService {
      *
      * @param id The ID of the book to delete.
      */
-    public void deleteBook(String  id) {
-        Optional<Book> book = bookRepository.findById(id);
+    public void deleteBook(String id) {
+        Optional<BookEntity> book = bookRepository.findById(id);
         if (book.isPresent()) {
             bookRepository.delete(book.get());
         } else {
-            throw new BookNotFoundException("Book with id " + id + " not found");
+            throw new BookNotFoundException("BookEntity with id " + id + " not found");
         }
     }
 

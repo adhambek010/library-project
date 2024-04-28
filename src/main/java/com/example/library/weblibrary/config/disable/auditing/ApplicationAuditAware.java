@@ -1,6 +1,6 @@
 //package com.example.library.weblibrary.auditing;
 //
-//import com.example.library.weblibrary.user.database.entities.User;
+//import com.example.library.weblibrary.userEntity.database.entities.UserEntity;
 //import org.springframework.data.domain.AuditorAware;
 //import org.springframework.security.authentication.AnonymousAuthenticationToken;
 //import org.springframework.security.core.Authentication;
@@ -17,7 +17,7 @@
 //            return Optional.empty();
 //        }
 //
-//        User userPrincipal = (User) authentication.getPrincipal();
+//        UserEntity userPrincipal = (UserEntity) authentication.getPrincipal();
 //        return Optional.of(userPrincipal.getId());
 //    }
 //}

@@ -13,7 +13,7 @@ application:
   security:
     jwt:
       secret-key: qnBbnNG75cdr8TQERRtrqSLXxwuSy8QRTs
-      expiration: 300000 # 5 min
+      expiration: 1200000 # 20 min
       refresh-token:
         expiration: 2000
 
