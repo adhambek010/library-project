@@ -1,0 +1,24 @@
+server:
+  port: 8081
+
+spring:
+  profiles:
+    active: dev1
+  application:
+    name: web-library
+  jackson:
+    default-property-inclusion: non_null
+
+application:
+  security:
+    jwt:
+      secret-key: qnBbnNG75cdr8TQERRtrqSLXxwuSy8QRTs
+      expiration: 1200000 # 20 min
+      refresh-token:
+        expiration: 2000
+
+
+logging:
+  level:
+    org.springframework: info
+    org.hibernate: error
