@@ -1,5 +1,8 @@
 package com.example.library.weblibrary.user.auth;
 
+import com.example.library.weblibrary.user.auth.dto.AuthenticationRequest;
+import com.example.library.weblibrary.user.auth.dto.AuthenticationResponse;
+import com.example.library.weblibrary.user.auth.dto.RegisterRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;

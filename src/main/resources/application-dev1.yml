@@ -13,3 +13,5 @@ spring:
   sql:
     init:
       encoding: UTF-8
+      mode: always
+      data-locations: classpath:/data/role.sql

@@ -1,13 +1,13 @@
 package com.example.library.weblibrary.user.controllers;
 
-import com.example.library.weblibrary.user.entities.User;
+import com.example.library.weblibrary.user.database.entities.User;
 import com.example.library.weblibrary.user.services.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import static com.example.library.weblibrary.user.endpoints.Endpoints.*;
+import static com.example.library.weblibrary.config.endpoints.Endpoints.*;
 
 @RestController
 @AllArgsConstructor

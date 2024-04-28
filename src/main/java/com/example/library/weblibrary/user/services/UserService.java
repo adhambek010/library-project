@@ -1,8 +1,8 @@
 package com.example.library.weblibrary.user.services;
 
-import com.example.library.weblibrary.user.entities.User;
-import com.example.library.weblibrary.exception.UserNotFoundException;
-import com.example.library.weblibrary.user.repositories.UserRepository;
+import com.example.library.weblibrary.user.database.entities.User;
+import com.example.library.weblibrary.config.exception.UserNotFoundException;
+import com.example.library.weblibrary.user.database.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,6 @@
 package com.example.library.weblibrary.config;
 
-import com.example.library.weblibrary.token.TokenRepository;
+import com.example.library.weblibrary.config.disable.token.TokenRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;

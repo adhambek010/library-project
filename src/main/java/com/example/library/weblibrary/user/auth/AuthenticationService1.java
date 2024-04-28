@@ -1,10 +1,13 @@
 package com.example.library.weblibrary.user.auth;
 
 import com.example.library.weblibrary.config.security.JwtTokenProvider;
-import com.example.library.weblibrary.user.entities.RoleEntity;
-import com.example.library.weblibrary.user.entities.User;
-import com.example.library.weblibrary.user.repositories.RoleRepository;
-import com.example.library.weblibrary.user.repositories.UserRepository;
+import com.example.library.weblibrary.user.auth.dto.AuthenticationRequest;
+import com.example.library.weblibrary.user.auth.dto.AuthenticationResponse;
+import com.example.library.weblibrary.user.auth.dto.RegisterRequest;
+import com.example.library.weblibrary.user.database.entities.RoleEntity;
+import com.example.library.weblibrary.user.database.entities.User;
+import com.example.library.weblibrary.user.database.repositories.RoleRepository;
+import com.example.library.weblibrary.user.database.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

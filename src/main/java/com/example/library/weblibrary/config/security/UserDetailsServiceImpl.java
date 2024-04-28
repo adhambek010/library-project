@@ -1,8 +1,8 @@
 package com.example.library.weblibrary.config.security;
 
-import com.example.library.weblibrary.user.entities.User;
-import com.example.library.weblibrary.user.entities.UserDetailsImpl;
-import com.example.library.weblibrary.user.repositories.UserRepository;
+import com.example.library.weblibrary.user.database.entities.User;
+import com.example.library.weblibrary.user.database.entities.UserDetailsImpl;
+import com.example.library.weblibrary.user.database.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

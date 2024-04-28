@@ -1,8 +1,8 @@
 package com.example.library.weblibrary.user.services;
 
-import com.example.library.weblibrary.user.entities.Book;
-import com.example.library.weblibrary.exception.BookNotFoundException;
-import com.example.library.weblibrary.user.repositories.BookRepository;
+import com.example.library.weblibrary.user.database.entities.Book;
+import com.example.library.weblibrary.config.exception.BookNotFoundException;
+import com.example.library.weblibrary.user.database.repositories.BookRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
