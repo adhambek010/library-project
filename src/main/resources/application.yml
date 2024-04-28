@@ -20,5 +20,5 @@ application:
 
 logging:
   level:
-    org.springframework: error
+    org.springframework: info
     org.hibernate: error

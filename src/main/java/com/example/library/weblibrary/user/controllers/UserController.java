@@ -3,6 +3,7 @@ package com.example.library.weblibrary.user.controllers;
 import com.example.library.weblibrary.user.database.entities.UserEntity;
 import com.example.library.weblibrary.user.services.UserService;
 import lombok.AllArgsConstructor;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -57,6 +58,11 @@ public class UserController {
     @DeleteMapping(DELETE_STUDENT)
     public void deleteStudent(@PathVariable String id) {
         studentService.deleteStudent(id);
+    }
+
+    @PostMapping("/user/login")
+    public Authentication login(Authentication authentication) {
+        return authentication;
     }
 
 }

@@ -1,5 +1,6 @@
 package com.example.library.weblibrary.book.database.entity;
 
+import com.example.library.weblibrary.book.dto.enums.BookStatus;
 import com.example.library.weblibrary.user.database.entities.BaseEntity;
 import com.example.library.weblibrary.book.dto.enums.Category;
 import jakarta.persistence.*;
@@ -24,5 +25,7 @@ public class BookEntity extends BaseEntity {
     private boolean available;
     @Enumerated(EnumType.STRING)
     private Category category;
+    @Enumerated(EnumType.STRING)
+    private BookStatus status;
     private Instant crateDate = Instant.now();
 }

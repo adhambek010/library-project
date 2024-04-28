@@ -1,7 +1,7 @@
-//package com.example.library.weblibrary.config;
+//package com.example.library.weblibrary.config.disable;
 //
-//import com.example.library.weblibrary.auditing.ApplicationAuditAware;
-//import com.example.library.weblibrary.userEntity.repositories.UserRepository;
+//import com.example.library.weblibrary.config.disable.auditing.ApplicationAuditAware;
+//import com.example.library.weblibrary.user.database.repositories.UserRepository;
 //import lombok.RequiredArgsConstructor;
 //import org.springframework.context.annotation.Bean;
 //import org.springframework.context.annotation.Configuration;
@@ -19,6 +19,7 @@
 //@Configuration
 //@RequiredArgsConstructor
 //public class ApplicationConfig {
+//
 //    private final UserRepository userRepository;
 //
 //    /**
@@ -52,7 +53,7 @@
 //     * @return An instance of AuditorAware
 //     */
 //    @Bean
-//    public AuditorAware<Integer> auditorAware() {
+//    public ApplicationAuditAware auditorAware() {
 //        return new ApplicationAuditAware();
 //    }
 //
